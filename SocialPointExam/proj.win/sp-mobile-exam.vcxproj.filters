@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\src\AppMacros.hpp" />
+    <ClInclude Include="..\src\AppDelegate.hpp" />
+    <ClInclude Include="..\src\game\CCLayerPanZoom.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameBuilding.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameBuilding.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameBuildingView.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameBuildingView.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameEntity.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameEntity.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameEntityView.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameEntityView.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameHudLayer.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameHudLayer.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameMap.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameMap.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameMapView.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameMapView.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameScene.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameScene.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameUnit.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameUnitView.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameUnitView.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gui\InstructionsScene.fwd.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gui\InstructionsScene.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gui\MainScene.fwd.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gui\MainScene.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\service\ServiceLocator.fwd.hpp">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\service\ServiceLocator.hpp">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\platform\win\main.h">
+      <Filter>platform\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameUnit.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\platform\win\UrlOpener.hpp">
+      <Filter>platform\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\service\IUrlOpener.fwd.hpp">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\service\IUrlOpener.hpp">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\building\GameWall.fwd.hpp">
+      <Filter>game\building</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\building\GameWall.hpp">
+      <Filter>game\building</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\AppDelegate.cpp" />
+    <ClCompile Include="..\src\game\CCLayerPanZoom.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameBuilding.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameBuildingView.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameEntity.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameEntityView.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameHudLayer.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameMap.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameMapView.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameScene.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameUnit.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameUnitView.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gui\InstructionsScene.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gui\MainScene.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\platform\win\main.cpp">
+      <Filter>platform\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\platform\win\UrlOpener.cpp">
+      <Filter>platform\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\service\ServiceLocator.cpp">
+      <Filter>service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\building\GameWall.cpp">
+      <Filter>game\building</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="game">
+      <UniqueIdentifier>{6438d2b4-c03c-462b-8a80-f29663eb26a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\building">
+      <UniqueIdentifier>{b83fb274-9cb1-46a4-8fdd-f1bad1c5f8f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui">
+      <UniqueIdentifier>{1e4de3fa-509b-4495-8a6f-06e3532d6d4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{0e23ee32-b4f9-443e-81ab-ec162df77cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\win">
+      <UniqueIdentifier>{4688d933-57cb-4938-a3f7-32e5fa2b7500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="service">
+      <UniqueIdentifier>{943730b4-c80f-47fd-9d39-c7247cd55d28}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

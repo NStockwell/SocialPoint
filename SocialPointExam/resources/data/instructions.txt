@@ -1,0 +1,40 @@
+INSTRUCTIONS
+============
+
+If you start the game, you will see that it just loads a map and place
+some units on it. You are asked to implement the unit attack:
+
+* The player should be able to select the units, and then select a
+building to make the units attack it.
+
+* The buildings should have hit points, and they should decrease as
+they are being attacked by the units.
+
+* The game should end when all the buildings have been destroyed
+
+On top of that, if you want something more, you can also make any of these:
+
+* Implement pathfinding
+Make the units find a path without going through other entities
+
+* Implement a game HUD
+You can implement a scoreboard, a unit stats panel, a bottom panel to allow
+the user to deploy units by dragging them, etc...
+
+* Implement the defense
+Make the turrets shoot at their attackers
+
+* Implement a proyectile system
+Make the units shoot proyectiles to the city buildings
+
+*Implement attack particles
+Damage indicators, explosions, ...
+
+* Implement an AI
+Make the units to attack by themselves
+
+* Surprise us!
+Of course, you can also do whatever it crosses your mind :)
+
+
+For more info on how cocos2d-x works, please visit their website.
