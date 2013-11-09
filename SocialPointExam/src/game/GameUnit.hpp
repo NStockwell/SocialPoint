@@ -22,12 +22,16 @@ public:
     typedef GameUnitOrientation::Type Orientation;
 private:
     GameUnitView* _view;
+	unsigned short _range;
+	unsigned short _power;
+	unsigned short _hitPoints;
+
 public:
 
 	/**
 	 * Constructor
 	 */
-	GameUnit(const std::string& name);
+	GameUnit(const std::string& name, unsigned short hitPoints, unsigned short power = 1, unsigned short range = 1);
 
 	/**
 	 * Destructor

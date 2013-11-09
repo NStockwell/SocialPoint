@@ -76,6 +76,7 @@
     <ClCompile Include="..\src\game\building\GameWall.cpp" />
     <ClCompile Include="..\src\game\CCLayerPanZoom.cpp" />
     <ClCompile Include="..\src\game\GameBuilding.cpp" />
+    <ClCompile Include="..\src\game\GameBuildingDestroyable.cpp" />
     <ClCompile Include="..\src\game\GameBuildingView.cpp" />
     <ClCompile Include="..\src\game\GameEntity.cpp" />
     <ClCompile Include="..\src\game\GameEntityView.cpp" />
@@ -99,6 +100,8 @@
     <ClInclude Include="..\src\game\CCLayerPanZoom.h" />
     <ClInclude Include="..\src\game\GameBuilding.fwd.hpp" />
     <ClInclude Include="..\src\game\GameBuilding.hpp" />
+    <ClInclude Include="..\src\game\GameBuildingDestroyable.fwd.hpp" />
+    <ClInclude Include="..\src\game\GameBuildingDestroyable.hpp" />
     <ClInclude Include="..\src\game\GameBuildingView.fwd.hpp" />
     <ClInclude Include="..\src\game\GameBuildingView.hpp" />
     <ClInclude Include="..\src\game\GameEntity.fwd.hpp" />

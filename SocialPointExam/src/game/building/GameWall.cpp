@@ -3,7 +3,7 @@
 #include "game/GameBuildingView.hpp"
 
 GameWall::GameWall() :
-GameBuilding("wall_1", TileSize(1, 1))
+GameBuildingDestroyable("wall_1", 15, TileSize(1, 1))
 {
 }
 

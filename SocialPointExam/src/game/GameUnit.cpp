@@ -5,7 +5,10 @@
 
 USING_NS_CC;
 
-GameUnit::GameUnit(const std::string& name)
+GameUnit::GameUnit(const std::string& name, unsigned short hitPoints, unsigned short power, unsigned short range):
+_hitPoints(hitPoints),
+_power(power),
+_range(range)
 {
     _view = GameUnitView::create(*this, name);
     setView(_view);

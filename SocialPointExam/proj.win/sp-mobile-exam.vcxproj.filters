@@ -102,6 +102,12 @@
     <ClInclude Include="..\src\game\building\GameWall.hpp">
       <Filter>game\building</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\game\GameBuildingDestroyable.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GameBuildingDestroyable.fwd.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\AppDelegate.cpp" />
@@ -155,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="..\src\game\building\GameWall.cpp">
       <Filter>game\building</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GameBuildingDestroyable.cpp">
+      <Filter>game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
