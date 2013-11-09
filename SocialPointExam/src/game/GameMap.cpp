@@ -4,6 +4,7 @@
 #include "game/GameEntity.hpp"
 #include "game/GameEntityView.hpp"
 #include "game/GameUnit.hpp"
+#include "game/GameBuildingDestroyable.hpp"
 
 GameMap::GameMap() :
 _ignoreNextTouch(false), _view(GameMapView::create(*this)), _debug(false)
@@ -112,12 +113,19 @@ bool GameMap::onTouch(const Tile& tile)
         if(getFreeTile(tile, free))
         {
             (*itr)->setSelected(false);
-            (*itr)->moveTo(free);
+			GameEntity ent = getTileEntity(tile);
+			GameBuildingDestroyable* destroyableBuilding =  dynamic_cast<GameBuildingDestroyable*>(&ent);
+			if(_selectedBuilding)
+			{
+				(*itr)->moveToAndAttack(free, tile);	
+			}else
+				(*itr)->moveTo(free);
             setEntityTiles(free, *itr);
         }
 
     }
     _selectedUnits.clear();
+	_selectedBuilding=NULL;
     return true;
 }
 
@@ -144,6 +152,11 @@ void GameMap::addSelectedUnit(GameUnit& unit)
         _selectedUnits.erase(itr);
         unit.setSelected(false);
     }
+}
+
+void GameMap::selectBuilding(GameBuilding& building)
+{
+	_selectedBuilding = &building;
 }
 
 void GameMap::toggleDebug()

@@ -36,6 +36,11 @@ public:
 	 */
     virtual ~GameBuilding();
     
+	/**
+     * @see GameEntity::onTouch
+     */
+    bool onTouch();
+
     /**
      * @return the size in tiles of the building
      */

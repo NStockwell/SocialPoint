@@ -5,6 +5,7 @@
 #include "game/GameMap.fwd.hpp"
 #include "game/GameEntity.fwd.hpp"
 #include "game/GameUnit.fwd.hpp"
+#include "game/GameBuilding.fwd.hpp"
 #include "game/GameMapView.fwd.hpp"
 #include <map>
 #include <set>
@@ -49,6 +50,7 @@ private:
     EntitySet _entities;
     TileMap _tiles;
     UnitSet _selectedUnits;
+	GameBuilding* _selectedBuilding;
     bool _ignoreNextTouch;
     bool _debug;
     
@@ -124,6 +126,11 @@ public:
      */
     void addSelectedUnit(GameUnit& unit);
     
+	/**
+	 * Selects a building
+	 */
+	void selectBuilding(GameBuilding& building);
+
     /**
      * Enable and disable debug mode
      */

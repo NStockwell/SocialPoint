@@ -45,7 +45,7 @@ bool GameScene::init()
 
     _map.putEntity(Tile(5, 35), new GameBuildingDestroyable("enemy_headquarter_1", 300, TileSize(4, 3)));
 
-    _map.putEntity(Tile(18, 31), new GameBuildingDestroyable("archer_tower_1", 75, TileSize(2, 2)));
+    _map.putEntity(Tile(18, 31), new GameBuildingDestroyable("archer_tower_1", 75, TileSize(2, 2)));	
     _map.putEntity(Tile(8, 22), new GameBuildingDestroyable("archer_tower_1", 75, TileSize(2, 2)));
     _map.putEntity(Tile(18, 22), new GameBuildingDestroyable("archer_tower_1", 75, TileSize(2, 2)));
     _map.putEntity(Tile(5, 39), new GameBuildingDestroyable("clan_portal_1", 125, TileSize(2, 2)));

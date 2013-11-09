@@ -42,13 +42,14 @@ const GameUnitView::AnimationConfigMap GameUnitView::kAnimationsConfig = GameUni
 const float GameUnitView::kSpriteFramerate = 1.0f/30.0f;
 
 GameUnitView::GameUnitView() :
-_moveAction(nullptr), _sprite(nullptr)
+_moveAction(nullptr), _sprite(nullptr), _moveAndAttackAction(nullptr)
 {
 }
 
 GameUnitView::~GameUnitView()
 {
     CC_SAFE_RELEASE(_moveAction);
+    CC_SAFE_RELEASE(_moveAndAttackAction);
     CC_SAFE_RELEASE(_sprite);
 }
 
@@ -78,6 +79,7 @@ bool GameUnitView::init(GameUnit& unit, const std::string& name)
     _animation = Animation::Idle;
     _name = name;
     _moveSpeed = 100.0f;
+	_attackSpeed = 1.0f;
     _unit = &unit;
     
     std::string path = std::string("units/")+_name+".plist";
@@ -131,6 +133,11 @@ void GameUnitView::setMoveSpeed(float speed)
     _moveSpeed = speed;
 }
 
+void GameUnitView::setAttackSpeed(float speed)
+{
+    _attackSpeed = speed;
+}
+
 void GameUnitView::moveTo(const cocos2d::CCPoint& point)
 {
     float duration = ccpDistance(getPosition(), point)/_moveSpeed;
@@ -149,9 +156,37 @@ void GameUnitView::moveTo(const cocos2d::CCPoint& point)
     runAction(_moveAction);
 }
 
+void GameUnitView::moveToAndAttack(const cocos2d::CCPoint& point, const cocos2d::CCPoint& attackPoint)
+{
+    float duration = ccpDistance(getPosition(), point)/_moveSpeed;
+    stopAllActions();
+    if(_moveAndAttackAction)
+    {
+        _moveAndAttackAction->stop();
+        CC_SAFE_RELEASE(_moveAndAttackAction);
+    }
+
+
+	 float angle = ccpToAngle(ccpSub(attackPoint, point));
+	 _attackOrientation = GameUnitView::orientationForAngle(angle);
+    _moveAndAttackAction = CCSequence::create(
+        CCMoveTo::create(duration, point),
+        CCCallFunc::create(this, callfunc_selector(GameUnitView::onMovedToAttack)),
+        NULL
+    );
+    CC_SAFE_RETAIN(_moveAndAttackAction);
+    runAction(_moveAndAttackAction);
+}
+
 void GameUnitView::onMovedTo()
 {
     setAnimation(Animation::Idle);
+}
+
+void GameUnitView::onMovedToAttack()
+{
+	setOrientation(_attackOrientation);
+	setAnimation(Animation::Attack);
 }
 
 GameUnitView::Orientation GameUnitView::orientationForAngle(float radians)

@@ -24,3 +24,13 @@ GameBuildingView* GameBuilding::getBuildingView()
 {
     return _view;
 }
+
+bool GameBuilding::onTouch()
+{
+    //if(GameEntity::onTouch())
+    {
+      //  return true;
+    }
+    getMap().selectBuilding(*this);
+    return true;
+}

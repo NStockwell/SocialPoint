@@ -30,6 +30,19 @@ void GameUnit::moveTo(const Tile& tile)
     _view->moveTo(to);
 }
 
+void GameUnit::moveToAndAttack(const Tile& tile, const Tile& tileToAttack)
+{
+    _view->setAnimation(GameUnitView::Animation::Move);
+    const CCPoint& from = getView()->getPosition();
+    CCPoint to = getMap().getTilePosition(tile);
+	CCPoint toAttack = getMap().getTilePosition(tileToAttack);
+    
+    float angle = ccpToAngle(ccpSub(to, from));
+    GameUnitView::Orientation ori = GameUnitView::orientationForAngle(angle);
+    _view->setOrientation(ori);
+    _view->moveToAndAttack(to, toAttack);
+}
+
 bool GameUnit::onTouch()
 {
     if(GameEntity::onTouch())

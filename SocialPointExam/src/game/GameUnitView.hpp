@@ -63,15 +63,19 @@ private:
     
     
     Orientation _orientation;
+	Orientation _attackOrientation;
     std::string _name;
     Animation _animation;
     float _moveSpeed;
+	float _attackSpeed; //Attack speed for the unit
     GameUnit* _unit;
     cocos2d::CCAction* _moveAction;
+	cocos2d::CCAction* _moveAndAttackAction;
     cocos2d::CCSprite* _sprite;
     
     void loadSprite();
     void onMovedTo();
+	void onMovedToAttack();
 	static AnimationConfigMap setupAnimationConfigMap();
 public:
     GameUnitView();
@@ -99,12 +103,23 @@ public:
      * @param speed 
      */
     void setMoveSpeed(float speed);
-    
+
+	/**
+     * Set the speed of attacks per second of the unit
+     * @param speed 
+     */
+    void setAttackSpeed(float speed);
+
     /**
      * Moves the unit to the given point and sets the Idle animation at the end
      */
     void moveTo(const cocos2d::CCPoint& point);
     
+	/**
+	 * Moves the unit to the given point and sets the Attack animation at the end
+	 */
+	void moveToAndAttack(const cocos2d::CCPoint& point, const cocos2d::CCPoint& attackPoint);
+
     /**
      * Returns a unit orientation for a given angle
      */

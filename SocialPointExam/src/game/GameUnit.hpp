@@ -43,6 +43,13 @@ public:
      */
     void moveTo(const Tile& tile);
     
+
+	/**
+	 * Move the unit to a point and attacks the point tileToAttack
+	 */
+	void moveToAndAttack(const Tile& tile, const Tile& tileToAttack);
+
+
     /**
      * @see GameEntity::onTouch
      */
