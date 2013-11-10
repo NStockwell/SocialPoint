@@ -105,7 +105,7 @@ void GameMap::putEntity(const Tile& tile, GameEntity* entity)
 
 void GameMap::watchForDestruction(GameEntity* entity)
 {
-	cocos2d::CCNotificationCenter::sharedNotificationCenter()->addObserver((cocos2d::CCObject*)entity, callfuncO_selector(GameMap::onBuildingDestroyed), "DESTROYED", NULL);
+	cocos2d::CCNotificationCenter::sharedNotificationCenter()->addObserver((cocos2d::CCObject*)this, callfuncO_selector(GameMap::onBuildingDestroyed), "DESTROYED", NULL);
 	_buildingList.insert((GameBuildingDestroyable*)entity);
     
 }

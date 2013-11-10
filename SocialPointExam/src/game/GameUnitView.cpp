@@ -160,22 +160,22 @@ void GameUnitView::moveToAndAttack(const cocos2d::CCPoint& point, const cocos2d:
 {
     float duration = ccpDistance(getPosition(), point)/_moveSpeed;
     stopAllActions();
-    if(_moveAndAttackAction)
+    if(_moveAction)
     {
-        _moveAndAttackAction->stop();
-        CC_SAFE_RELEASE(_moveAndAttackAction);
+        _moveAction->stop();
+        CC_SAFE_RELEASE(_moveAction);
     }
 
 
 	 float angle = ccpToAngle(ccpSub(attackPoint, point));
 	 _attackOrientation = GameUnitView::orientationForAngle(angle);
-    _moveAndAttackAction = CCSequence::create(
+    _moveAction = CCSequence::create(
         CCMoveTo::create(duration, point),
         CCCallFunc::create(this, callfunc_selector(GameUnitView::onMovedToAttack)),
         NULL
     );
-    CC_SAFE_RETAIN(_moveAndAttackAction);
-    runAction(_moveAndAttackAction);
+    CC_SAFE_RETAIN(_moveAction);
+    runAction(_moveAction);
 }
 
 void GameUnitView::onMovedTo()
@@ -193,24 +193,24 @@ void GameUnitView::onMovedToAttack()
 void GameUnitView::attack()
 {
 	stopAllActions();
-    if(_attackAction)
+    if(_moveAction)
     {
-        _attackAction->stop();
-        CC_SAFE_RELEASE(_attackAction);
+        _moveAction->stop();
+        CC_SAFE_RELEASE(_moveAction);
     }
 	
 	if(!_unit->attackEntity())
 	{
-		setAnimation(Animation::Idle);
+		//setAnimation(Animation::Idle);
 		return;
 	}
-	_attackAction = CCSequence::create(
+	_moveAction = CCSequence::create(
         CCDelayTime::create(_attackSpeed),
         CCCallFunc::create(this, callfunc_selector(GameUnitView::attack)),
         NULL
     );
-    CC_SAFE_RETAIN(_attackAction);
-    runAction(_attackAction);
+    CC_SAFE_RETAIN(_moveAction);
+    runAction(_moveAction);
 }
 
 

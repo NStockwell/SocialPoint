@@ -52,7 +52,7 @@ bool GameUnit::attackEntity()
 	if( !_attackingEntity->attacked(_power))
 	{
 		_attackingEntity = nullptr;
-		_view->setAnimation(GameUnitView::Animation::Idle);
+		//_view->setAnimation(GameUnitView::Animation::Idle);
 		return false;
 	}
 	return true;
