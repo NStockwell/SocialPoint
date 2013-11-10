@@ -201,7 +201,8 @@ void GameUnitView::attack()
 	
 	if(!_unit->attackEntity())
 	{
-		//setAnimation(Animation::Idle);
+		setAnimation(Animation::Idle);
+		_moveAction = nullptr;
 		return;
 	}
 	_moveAction = CCSequence::create(
