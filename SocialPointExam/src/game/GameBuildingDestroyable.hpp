@@ -8,7 +8,11 @@
 #include "game/GameEntity.hpp"
 #include "game/GameBuildingView.hpp"
 #include <string>
+
+#include <cocos2d.h>
  
+using namespace cocos2d;
+
 /**
  * Represents a game entity of type building destroyable
  */
@@ -19,6 +23,7 @@ public:
 private:
     int _hitPoints;
 	bool _destroyed;    
+	cocos2d::CCLabelTTF* _hitPointsLabel;
 protected:
     
 public:

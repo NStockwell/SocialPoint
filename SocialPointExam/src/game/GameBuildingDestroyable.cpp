@@ -7,6 +7,13 @@ GameBuildingDestroyable::GameBuildingDestroyable(const std::string& name, int hi
 {
 	_hitPoints = hitPoints;
 	_destroyed = false;
+	
+	_hitPointsLabel = CCLabelTTF::create(std::to_string(_hitPoints).c_str(), "Helvetica", 12, 
+                                      CCSizeMake(245, 32), kCCTextAlignmentCenter);
+
+	GameBuildingView* gbv = getBuildingView();
+	_hitPointsLabel->setPosition(CCPointMake( gbv->getPositionX() + gbv->getContentSize().width/2, gbv->getPositionY() + gbv->getContentSize().height)),
+	getBuildingView()->addChild(_hitPointsLabel);
 }
 
 GameBuildingDestroyable::~GameBuildingDestroyable()
@@ -40,6 +47,7 @@ bool GameBuildingDestroyable::attacked(int damage)
 
 
 	_hitPoints -= damage;
+	_hitPointsLabel->setString(std::to_string(_hitPoints).c_str());
 	if(_hitPoints <=0)
 	{
 		_destroyed = true;
