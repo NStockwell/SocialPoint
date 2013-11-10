@@ -18,7 +18,7 @@ public:
 private:
     GameMap _map;
     GameHudLayer* _hud;
-
+	
 public:
 
     /**
@@ -37,6 +37,7 @@ public:
      */
     static GameScene* create();
     bool init();
+
 };
 
 #endif /* defined(__GameController_H__) */

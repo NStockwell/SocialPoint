@@ -38,14 +38,14 @@ bool GameBuildingDestroyable::attacked(int damage)
 	if(_destroyed)
 		return false;
 
+
 	_hitPoints -= damage;
 	if(_hitPoints <=0)
 	{
-		GameBuildingView *gbv = getBuildingView();
-		gbv->setVisible(false);
-		_hitPoints = 0;
 		_destroyed = true;
-		//setView(nullptr);
+		getBuildingView()->setVisible(false);
+		_hitPoints = 0;
+		cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification("DESTROYED",(cocos2d::CCObject*)this);
 	}
 	return true;
 }

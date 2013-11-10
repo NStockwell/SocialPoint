@@ -5,13 +5,16 @@
 #include "game/GameEntityView.hpp"
 #include "game/GameUnit.hpp"
 #include "game/GameBuilding.hpp"
+#include <cocos2d.h>
+
+USING_NS_CC;
 
 GameMap::GameMap() :
 _ignoreNextTouch(false), _view(GameMapView::create(*this)), _debug(false)
 {
     CC_SAFE_RETAIN(_view);
     _view->start();
-    
+	_buildingList.clear();
 
 }
 
@@ -26,6 +29,7 @@ GameMap::~GameMap()
     {
         delete *itr;
     }
+	_buildingList.clear();
 }
 
 cocos2d::CCNode* GameMap::getView()
@@ -99,6 +103,13 @@ void GameMap::putEntity(const Tile& tile, GameEntity* entity)
     setEntityTiles(tile, entity);
 }
 
+void GameMap::watchForDestruction(GameEntity* entity)
+{
+	cocos2d::CCNotificationCenter::sharedNotificationCenter()->addObserver((cocos2d::CCObject*)entity, callfuncO_selector(GameMap::onBuildingDestroyed), "DESTROYED", NULL);
+	_buildingList.insert((GameBuildingDestroyable*)entity);
+    
+}
+
 bool GameMap::onTouch(const Tile& tile)
 {
     if(_ignoreNextTouch)
@@ -158,6 +169,21 @@ void GameMap::addSelectedUnit(GameUnit& unit)
 void GameMap::selectBuilding(GameBuilding& building)
 {
 	_selectedBuilding = &building;
+}
+
+void GameMap::onBuildingDestroyed(cocos2d::CCObject* obj)
+{
+	//trying to remove when there is nothing there
+	if(_buildingList.size() == 0)
+		return;
+
+	BuildingSet::const_iterator iter = _buildingList.find((GameBuildingDestroyable*)obj);
+	if(iter != _buildingList.end())
+	{
+		_buildingList.erase(iter);
+		if(_buildingList.size() == 0)
+			cocos2d::CCDirector::sharedDirector()->popScene();
+	}
 }
 
 void GameMap::toggleDebug()

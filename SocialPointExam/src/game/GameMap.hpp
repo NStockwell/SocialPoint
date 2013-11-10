@@ -6,6 +6,7 @@
 #include "game/GameEntity.fwd.hpp"
 #include "game/GameUnit.fwd.hpp"
 #include "game/GameBuilding.fwd.hpp"
+#include "GameBuildingDestroyable.fwd.hpp"
 #include "game/GameMapView.fwd.hpp"
 #include <map>
 #include <set>
@@ -13,6 +14,7 @@
 namespace cocos2d {
     class CCNode;
     class CCPoint;
+	class CCObject;
 }
 
 struct GameMapTile
@@ -46,9 +48,11 @@ private:
     typedef std::map<Tile, GameEntity*> TileMap;
     typedef std::set<GameEntity*> EntitySet;
     typedef std::set<GameUnit*> UnitSet;
+	typedef std::set<GameBuildingDestroyable*> BuildingSet;
     GameMapView* _view;
     EntitySet _entities;
     TileMap _tiles;
+	BuildingSet _buildingList;
     UnitSet _selectedUnits;
 	GameBuilding* _selectedBuilding;
     bool _ignoreNextTouch;
@@ -130,6 +134,12 @@ public:
 	 * Selects a building
 	 */
 	void selectBuilding(GameBuilding& building);
+
+	
+	void onBuildingDestroyed(cocos2d::CCObject* obj);
+
+	
+	void watchForDestruction(GameEntity* entity);
 
     /**
      * Enable and disable debug mode
