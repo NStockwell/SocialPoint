@@ -21,6 +21,8 @@ public:
 private:
     GameEntityView* _view;
     GameMap* _map;
+	int _hitPoints;
+	bool _destroyed; 
     
 protected:
     void setView(GameEntityView* view);
@@ -52,7 +54,22 @@ public:
      * is put inside it
      */
     void setMap(GameMap& map);
+
+	/**
+	 * Sets if current entoty is destroyed
+	*/ 	 
+	void setDestroyed(bool destroyed);
+
+	/**
+	* The hitpoints of this entity
+	*/
+	void setHitPoints(int hitPoints);
     
+	 /**
+	 * Returns true if the building has been destroyed
+	 */
+	 virtual bool isDestroyed();
+
     /**
      * Called when the entity was touched
      * @return true if the touch was handled
@@ -73,6 +90,12 @@ public:
      * Called when the entity is selected
      */
     virtual void setSelected(bool selected);
+
+	/**
+	 * Called when this entity is being attacked.
+	 * @return true if this entity was attacked successfully (still had hitpoints to be removed)
+	 */
+	virtual bool attacked(int power);
 };
 
 #endif /* defined(__GameEntity_H__) */

@@ -71,11 +71,13 @@ private:
     GameUnit* _unit;
     cocos2d::CCAction* _moveAction;
 	cocos2d::CCAction* _moveAndAttackAction;
+	cocos2d::CCAction* _attackAction;
     cocos2d::CCSprite* _sprite;
     
     void loadSprite();
     void onMovedTo();
 	void onMovedToAttack();
+	void attack();
 	static AnimationConfigMap setupAnimationConfigMap();
 public:
     GameUnitView();

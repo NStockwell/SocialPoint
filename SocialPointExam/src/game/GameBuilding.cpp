@@ -34,3 +34,13 @@ bool GameBuilding::onTouch()
     getMap().selectBuilding(*this);
     return true;
 }
+
+bool GameBuilding::isDestroyed()
+{
+	return false;
+}
+
+bool GameBuilding::attacked(int damage)
+{
+	return false;
+}

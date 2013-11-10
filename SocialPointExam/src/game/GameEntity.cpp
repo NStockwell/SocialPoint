@@ -88,3 +88,32 @@ void GameEntity::setSelected(bool selected)
 {
     _view->setSelected(selected);
 }
+
+void GameEntity::setHitPoints(int points)
+{
+	_hitPoints = points;
+}
+
+void GameEntity::setDestroyed(bool destroyed)
+{
+	_destroyed = destroyed;
+}
+
+bool GameEntity::isDestroyed()
+{
+	return _destroyed;
+}
+
+bool GameEntity::attacked(int damage)
+{
+	if(_destroyed)
+		return false;
+
+	_hitPoints -= damage;
+	if(_hitPoints <=0)
+	{
+		_hitPoints = 0;
+		_destroyed = true;
+	}
+	return true;
+}

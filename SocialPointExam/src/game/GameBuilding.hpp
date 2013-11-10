@@ -45,6 +45,17 @@ public:
      * @return the size in tiles of the building
      */
     virtual const TileSize& getTileSize();
+
+	 /**
+	 * Returns true if the building has been destroyed
+	 */
+	 virtual bool isDestroyed();
+
+	 /**
+	 * Called when this entity is being attacked.
+	 * @return true if this entity was attacked successfully (still had hitpoints to be removed)
+	 */
+	virtual bool attacked(int power);
 };
 
 #endif /* defined(__GameBuilding_H__) */

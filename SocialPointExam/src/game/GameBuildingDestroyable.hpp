@@ -6,6 +6,7 @@
 //#include "game/GameBuildingDestroyable.fwd.hpp"
 #include "game/GameBuilding.hpp"
 #include "game/GameEntity.hpp"
+#include "game/GameBuildingView.hpp"
 #include <string>
  
 /**
@@ -32,6 +33,8 @@ public:
 	 */
     virtual ~GameBuildingDestroyable();
     
+	bool onTouch();
+
 	/**
 	 * Returns true if the building has been destroyed
 	 */

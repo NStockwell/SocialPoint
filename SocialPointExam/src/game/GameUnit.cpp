@@ -12,6 +12,7 @@ _range(range)
 {
     _view = GameUnitView::create(*this, name);
     setView(_view);
+	_attackingEntity = nullptr;
 }
 
 GameUnit::~GameUnit()
@@ -30,7 +31,7 @@ void GameUnit::moveTo(const Tile& tile)
     _view->moveTo(to);
 }
 
-void GameUnit::moveToAndAttack(const Tile& tile, const Tile& tileToAttack)
+void GameUnit::moveToAndAttack(const Tile& tile, const Tile& tileToAttack, GameEntity* attackingEntity)
 {
     _view->setAnimation(GameUnitView::Animation::Move);
     const CCPoint& from = getView()->getPosition();
@@ -41,6 +42,25 @@ void GameUnit::moveToAndAttack(const Tile& tile, const Tile& tileToAttack)
     GameUnitView::Orientation ori = GameUnitView::orientationForAngle(angle);
     _view->setOrientation(ori);
     _view->moveToAndAttack(to, toAttack);
+	_attackingEntity = attackingEntity;
+}
+
+bool GameUnit::attackEntity()
+{
+	if(!_attackingEntity)
+		return false;
+	if( !_attackingEntity->attacked(_power))
+	{
+		_attackingEntity = nullptr;
+		_view->setAnimation(GameUnitView::Animation::Idle);
+		return false;
+	}
+	return true;
+}
+
+void GameUnit::setAttackingEntity(GameEntity* att)
+{
+	_attackingEntity = att;
 }
 
 bool GameUnit::onTouch()

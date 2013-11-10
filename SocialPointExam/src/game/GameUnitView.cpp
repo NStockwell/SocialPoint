@@ -42,7 +42,7 @@ const GameUnitView::AnimationConfigMap GameUnitView::kAnimationsConfig = GameUni
 const float GameUnitView::kSpriteFramerate = 1.0f/30.0f;
 
 GameUnitView::GameUnitView() :
-_moveAction(nullptr), _sprite(nullptr), _moveAndAttackAction(nullptr)
+_moveAction(nullptr), _sprite(nullptr), _moveAndAttackAction(nullptr), _attackAction(nullptr)
 {
 }
 
@@ -187,7 +187,32 @@ void GameUnitView::onMovedToAttack()
 {
 	setOrientation(_attackOrientation);
 	setAnimation(Animation::Attack);
+	attack();
 }
+
+void GameUnitView::attack()
+{
+	stopAllActions();
+    if(_attackAction)
+    {
+        _attackAction->stop();
+        CC_SAFE_RELEASE(_attackAction);
+    }
+	
+	if(!_unit->attackEntity())
+	{
+		setAnimation(Animation::Idle);
+		return;
+	}
+	_attackAction = CCSequence::create(
+        CCDelayTime::create(_attackSpeed),
+        CCCallFunc::create(this, callfunc_selector(GameUnitView::attack)),
+        NULL
+    );
+    CC_SAFE_RETAIN(_attackAction);
+    runAction(_attackAction);
+}
+
 
 GameUnitView::Orientation GameUnitView::orientationForAngle(float radians)
 {

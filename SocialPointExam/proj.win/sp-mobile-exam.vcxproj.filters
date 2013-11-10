@@ -102,10 +102,10 @@
     <ClInclude Include="..\src\game\building\GameWall.hpp">
       <Filter>game\building</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\game\GameBuildingDestroyable.hpp">
+    <ClInclude Include="..\src\game\GameBuildingDestroyable.fwd.hpp">
       <Filter>game</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\game\GameBuildingDestroyable.fwd.hpp">
+    <ClInclude Include="..\src\game\GameBuildingDestroyable.hpp">
       <Filter>game</Filter>
     </ClInclude>
   </ItemGroup>

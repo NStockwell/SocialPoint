@@ -22,9 +22,12 @@ public:
     typedef GameUnitOrientation::Type Orientation;
 private:
     GameUnitView* _view;
+	GameEntity* _attackingEntity;
 	unsigned short _range;
 	unsigned short _power;
 	unsigned short _hitPoints;
+
+	
 
 public:
 
@@ -47,7 +50,18 @@ public:
 	/**
 	 * Move the unit to a point and attacks the point tileToAttack
 	 */
-	void moveToAndAttack(const Tile& tile, const Tile& tileToAttack);
+	void moveToAndAttack(const Tile& tile, const Tile& tileToAttack, GameEntity* attackingEntity);
+
+	/**
+	* Attacks the selected entity (from moveToAndAttack)
+	*/
+	bool attackEntity();
+
+	/**
+	 * Sets a new entity for this unit to attack
+	 @param att The GameEntity to attack
+	 */
+	void setAttackingEntity(GameEntity* att);
 
 
     /**
