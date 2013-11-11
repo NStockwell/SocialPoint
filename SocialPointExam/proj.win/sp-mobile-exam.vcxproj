@@ -88,6 +88,7 @@
     <ClCompile Include="..\src\game\GameScene.cpp" />
     <ClCompile Include="..\src\game\GameUnit.cpp" />
     <ClCompile Include="..\src\game\GameUnitView.cpp" />
+    <ClCompile Include="..\src\game\PathFinder.cpp" />
     <ClCompile Include="..\src\gui\InstructionsScene.cpp" />
     <ClCompile Include="..\src\gui\MainScene.cpp" />
     <ClCompile Include="..\src\platform\win\main.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="..\src\game\GameUnit.hpp" />
     <ClInclude Include="..\src\game\GameUnitView.fwd.hpp" />
     <ClInclude Include="..\src\game\GameUnitView.hpp" />
+    <ClInclude Include="..\src\game\PathFinder.hpp" />
     <ClInclude Include="..\src\gui\InstructionsScene.fwd.hpp" />
     <ClInclude Include="..\src\gui\InstructionsScene.hpp" />
     <ClInclude Include="..\src\gui\MainScene.fwd.hpp" />

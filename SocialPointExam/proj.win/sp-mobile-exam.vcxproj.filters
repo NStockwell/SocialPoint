@@ -108,6 +108,9 @@
     <ClInclude Include="..\src\game\GameBuildingDestroyable.hpp">
       <Filter>game</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\game\PathFinder.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\AppDelegate.cpp" />
@@ -163,6 +166,9 @@
       <Filter>game\building</Filter>
     </ClCompile>
     <ClCompile Include="..\src\game\GameBuildingDestroyable.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\PathFinder.cpp">
       <Filter>game</Filter>
     </ClCompile>
   </ItemGroup>
